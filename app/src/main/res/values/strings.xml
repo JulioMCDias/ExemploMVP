@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ExemploMVP</string>
+    <string name="storeCar">Loja de carros</string>
+    <string name="list_car">Lista de carros</string>
+    <string name="add_car">Adicionar carro</string>
+    <string name="title_activity_add_car">AddCarActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="name_car">Nome do veiculo</string>
+    <string name="car">Carro</string>
+    <string name="title_activity_list_car">ListCarActivity</string>
+    <string name="year_manufacture">ano de fabricação</string>
+    <string name="btn_cancel">cancelar</string>
+    <string name="btn_add">adicionar</string>
+    <string name="name">nome</string>
+    <string name="year">ano</string>
+</resources>

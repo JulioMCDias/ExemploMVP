@@ -3,6 +3,8 @@ package com.jlmcdeveloper.exemplomvp.ui.listcar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.jlmcdeveloper.exemplomvp.R;
@@ -10,14 +12,13 @@ import com.jlmcdeveloper.exemplomvp.data.db.model.Car;
 
 import java.util.List;
 
-import javax.inject.Inject;
 
-public class RecycleAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class CarAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<Car> carList;
 
-    @Inject
-    public RecycleAdapter(List<Car> list){
+
+    public CarAdapter(List<Car> list){
         carList = list;
     }
 

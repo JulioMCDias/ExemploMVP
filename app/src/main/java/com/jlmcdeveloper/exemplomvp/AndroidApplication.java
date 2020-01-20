@@ -4,15 +4,14 @@ import android.app.Application;
 
 import com.jlmcdeveloper.exemplomvp.contract.ApplicationComponent;
 import com.jlmcdeveloper.exemplomvp.contract.DaggerApplicationComponent;
-import com.jlmcdeveloper.exemplomvp.module.AppModule;
-import com.jlmcdeveloper.exemplomvp.module.SQLiteModule;
+import com.jlmcdeveloper.exemplomvp.module.ApplicationModule;
 
 
 public class AndroidApplication extends Application {
 
-    public static ApplicationComponent component;
+    private ApplicationComponent component;
 
-    public static ApplicationComponent getComponent(){
+    public ApplicationComponent getComponent(){
         return component;
     }
 
@@ -25,8 +24,7 @@ public class AndroidApplication extends Application {
 
     private ApplicationComponent buildComponent(){
         return DaggerApplicationComponent.builder()
-                .appModule(new AppModule(this))
-                .sQLiteModule(new SQLiteModule())
+                .applicationModule(new ApplicationModule(this))
                 .build();
     }
 

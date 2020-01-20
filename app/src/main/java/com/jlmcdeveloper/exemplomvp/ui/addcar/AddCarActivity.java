@@ -3,22 +3,18 @@ package com.jlmcdeveloper.exemplomvp.ui.addcar;
 import android.os.Bundle;
 import android.view.View;
 
-
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.Toolbar;
 
-import com.jlmcdeveloper.exemplomvp.AndroidApplication;
 import com.jlmcdeveloper.exemplomvp.R;
-import com.jlmcdeveloper.exemplomvp.data.db.CarsDAO;
-import com.jlmcdeveloper.exemplomvp.data.db.model.Car;
+import com.jlmcdeveloper.exemplomvp.ui.base.BaseActivity;
 
 import javax.inject.Inject;
 
-public class AddCarActivity extends AppCompatActivity {
+public class AddCarActivity extends BaseActivity implements AddCarMvpView{
 
-    @Inject
-    CarsDAO carsDAO;
+   @Inject
+   AddCarMvpPresenter<AddCarMvpView> presenter;
 
     private AppCompatEditText editTextName;
     private AppCompatEditText editTextYear;
@@ -30,7 +26,8 @@ public class AddCarActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        AndroidApplication.getComponent().inject(this);
+        getActivityComponent().inject(this);
+        presenter.onAttach(this);
 
         editTextName = findViewById(R.id.ed_name);
         editTextYear = findViewById(R.id.ed_year);
@@ -38,16 +35,19 @@ public class AddCarActivity extends AppCompatActivity {
 
 
     public void btnSaveCar(View view) {
-        carsDAO.open();
         String name = editTextName.getEditableText().toString();
         int year = Integer.decode(editTextYear.getEditableText().toString());
-        carsDAO.create(new Car(name, year));
-        carsDAO.close();
-        finish();
+
+        presenter.insertCar(name, year);
     }
 
 
     public void btnCancel(View view) {
+        finish();
+    }
+
+    @Override
+    public void closeActivity() {
         finish();
     }
 }

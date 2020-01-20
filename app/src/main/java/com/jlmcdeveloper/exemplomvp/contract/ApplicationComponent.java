@@ -1,16 +1,20 @@
 package com.jlmcdeveloper.exemplomvp.contract;
 
 
-import com.jlmcdeveloper.exemplomvp.module.AppModule;
-import com.jlmcdeveloper.exemplomvp.module.SQLiteModule;
-import com.jlmcdeveloper.exemplomvp.ui.addcar.AddCarActivity;
+import com.jlmcdeveloper.exemplomvp.AndroidApplication;
+import com.jlmcdeveloper.exemplomvp.data.DataManager;
+import com.jlmcdeveloper.exemplomvp.module.ApplicationModule;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
 
 @Singleton
-@Component(modules = {AppModule.class, SQLiteModule.class})
+@Component(modules = ApplicationModule.class)
 public interface ApplicationComponent {
-    void inject(AddCarActivity addCarActivity);
+
+    void inject(AndroidApplication androidApplication);
+
+
+    DataManager getDataManager();
 }

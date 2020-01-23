@@ -24,4 +24,9 @@ public class ListCarPresenter<V extends ListCarMvpView> extends BasePresenter<V>
     public List<Car> getAllCars() {
         return dataManager.getAllCars();
     }
+
+    @Override
+    public void removeCar(Car car) {
+        dataManager.removeCar(car);
+    }
 }

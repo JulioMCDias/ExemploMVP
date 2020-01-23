@@ -9,4 +9,6 @@ public interface DataManager {
     void insertCar(final Car car);
 
     List<Car> getAllCars();
+
+    void removeCar(Car car);
 }

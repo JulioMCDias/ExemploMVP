@@ -42,7 +42,7 @@
         app:layout_constraintVertical_bias="0.13999999" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutCar"
+        android:id="@+id/text_input_Car"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
@@ -69,7 +69,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCar"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_Car"
         app:layout_constraintVertical_bias="0.13">
 
         <androidx.appcompat.widget.AppCompatEditText

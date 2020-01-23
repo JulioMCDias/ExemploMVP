@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jlmcdeveloper.exemplomvp.R;
+import com.jlmcdeveloper.exemplomvp.data.db.model.Car;
 import com.jlmcdeveloper.exemplomvp.ui.base.BaseActivity;
 
 import javax.inject.Inject;
@@ -31,6 +32,14 @@ public class ListCarActivity extends BaseActivity implements ListCarMvpView{
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         CarAdapter adapter = new CarAdapter(presenter.getAllCars());
+
+        adapter.btnAddListener(new CarAdapter.BtnListener() {
+            @Override
+            public void handle(Car car) {
+                presenter.removeCar(car);
+            }
+        });
+
         recyclerView.setAdapter(adapter);
     }
 }

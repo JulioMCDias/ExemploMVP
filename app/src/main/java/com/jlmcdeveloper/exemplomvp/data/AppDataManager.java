@@ -42,4 +42,13 @@ public class AppDataManager implements DataManager {
 
         return cars;
     }
+
+    @Override
+    public void removeCar(Car car) {
+        carsDAO.open();
+        carsDAO.delete(car);
+        carsDAO.close();
+    }
+
+
 }

@@ -9,4 +9,5 @@ public interface ListCarMvpPresenter<V extends ListCarMvpView> extends MvpPresen
 
     List<Car> getAllCars();
 
+    void removeCar(Car car);
 }

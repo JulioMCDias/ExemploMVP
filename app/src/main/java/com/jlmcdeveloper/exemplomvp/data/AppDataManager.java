@@ -16,12 +16,10 @@ import javax.inject.Singleton;
 @Singleton
 public class AppDataManager implements DataManager {
 
-    private Context context;
     private CarsDAO carsDAO;
 
     @Inject
-    public AppDataManager(@ApplicationContext Context context, CarsDAO carsDAO) {
-        this.context = context;
+    public AppDataManager(CarsDAO carsDAO) {
         this.carsDAO = carsDAO;
     }
 
